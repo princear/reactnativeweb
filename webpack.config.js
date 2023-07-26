@@ -45,9 +45,11 @@ const imageLoaderConfiguration = {
     loader: 'url-loader',
     options: {
       name: '[name].[ext]',
+      esModule: false,
     },
   },
 };
+
 
 module.exports = {
   entry: {
@@ -81,4 +83,5 @@ module.exports = {
       __DEV__: JSON.stringify(true),
     }),
   ],
+  
 };
