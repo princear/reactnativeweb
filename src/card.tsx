@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform } f
 
 const Card = () => {
 
+    
     const [test, setTest] = useState([
         {
             id: 1,
