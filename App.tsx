@@ -9,8 +9,8 @@ const App = () => {
     <View style={styles.container}>
      
 
-      {/* <Card /> */}
-      <CardTest/>
+      <Card />
+      {/* <CardTest/> */}
     </View>
   );
 };
