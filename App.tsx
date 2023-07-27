@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Card from './src/card';
 import CardTest from './src/cardTest';
+import PrakiriTest from './src/prakiriTest';
 
 const App = () => {
   const [count, setCount] = useState(0);
   return (
     <View style={styles.container}>
-     
 
-      <Card />
+      <PrakiriTest />
+      {/* <Card /> */}
       {/* <CardTest/> */}
     </View>
   );
