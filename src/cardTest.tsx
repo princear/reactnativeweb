@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Platform } from 'react-native';
 
-const CardTest = () => {
+const CardTest =  ({navigation}: {navigation: any}) => {
 
 
     return (
@@ -15,7 +15,9 @@ const CardTest = () => {
                 <Text style={styles.elementText}>We'll ask a few questions to evaluate your body's function and elements</Text>
                 <Text style={styles.subHeadingText}>All the information that you provide will only be used for legitimate diagnosis and determination.</Text>
             </View>
-            <TouchableOpacity style={styles.continueWrapper}>
+            <TouchableOpacity  onPress={() =>
+                            navigation.navigate('Home')
+                        } style={styles.continueWrapper}>
                 <Text style={styles.continueText}>Continue</Text>
             </TouchableOpacity>
         </View>

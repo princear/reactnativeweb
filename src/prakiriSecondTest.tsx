@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert } from 'react-native';
 
-const PrakiriTest = ({navigation}: {navigation: any}) => {
+const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
 
     const familyTest = [
         {
-            key: 'LOW',
-            text: 'LOW',
+            key: 'OFTEN',
+            text: 'OFTEN',
         },
         {
-            key: 'MEDIUM',
-            text: 'MEDIUM',
+            key: 'SOMETIMES',
+            text: 'SOMETIMES',
         },
         {
-            key: 'HIGH',
-            text: 'HIGH',
+            key: 'RARELY',
+            text: 'RARELY',
         },
 
     ];
     const [value, setValue] = useState('');
     const memberTest = [
         {
-            key: 'LOW',
-            text: 'LOW',
+            key: 'OFTEN',
+            text: 'OFTEN',
         },
         {
-            key: 'MEDIUM',
-            text: 'MEDIUM',
+            key: 'SOMETIMES',
+            text: 'SOMETIMES',
         },
         {
-            key: 'HIGH',
-            text: 'HIGH',
+            key: 'RARELY',
+            text: 'RARELY',
         },
 
     ];
@@ -47,18 +47,18 @@ const PrakiriTest = ({navigation}: {navigation: any}) => {
                             <Image source={require('../src/assets/icons/image92.png')} style={styles.headingLeftImage} />
                             <Text>Prakriti Test</Text>
                         </View>
-                        <TouchableOpacity onPress={() => navigation.navigate('PrakiriSecondTest')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('PrakiriThirdTest')}>
                             <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
                         </TouchableOpacity>
                     </View>
-                    <View style={{ marginTop: '60%' }}>
+                    <View style={{ marginTop: Platform.OS == 'web'? '60%':'60%' }}>
 
                         <Image source={require('../src/assets/icons/Group54.png')} style={styles.headingCenterImage} />
                         <View style={{ marginTop: 15 }}>
-                            <Text style={styles.levelHeading}>Please select your level of communication with:</Text>
+                            <Text style={styles.levelHeading}>When there is a discussion, do you take control of the conversation and make sure your views are heard?</Text>
                         </View>
                         <View style={{ marginTop: 15 }}>
-                            <Text style={styles.levelHeading}>Friends</Text>
+                            <Text style={styles.levelHeading}>With Friends</Text>
                             <View style={{ flexDirection: 'row' }}>
 
                                 {familyTest.map(res => {
@@ -80,7 +80,7 @@ const PrakiriTest = ({navigation}: {navigation: any}) => {
 
                         </View>
                         <View style={{ marginTop: 15 }}>
-                            <Text style={styles.levelHeading}>Family Members</Text>
+                            <Text style={styles.levelHeading}>With Family Members</Text>
                             <View style={{ flexDirection: 'row' }}>
 
                                 {memberTest.map(res => {
@@ -102,7 +102,7 @@ const PrakiriTest = ({navigation}: {navigation: any}) => {
 
                         </View>
                         <View style={{ marginTop: 15 }}>
-                            <Text style={styles.levelHeading}>Co-workers</Text>
+                            <Text style={styles.levelHeading}>With Co-workers</Text>
                             <View style={{ flexDirection: 'row' }}>
 
                                 {memberTest.map(res => {
@@ -130,18 +130,19 @@ const PrakiriTest = ({navigation}: {navigation: any}) => {
 };
 
 const styles = StyleSheet.create({
-
+    webView: {
+        flex: 1,
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        width: 450,
+        marginTop:10,
+    },
     containerWrapper:{
         flex: 1,
         paddingTop: 40,
         paddingHorizontal: 10,
     },
-    webView: {
-        flex: 1,
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        marginTop:'2%',
-    },
+   
     headingWrapper: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -195,4 +196,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default PrakiriTest;
+export default PrakiriSecondTest;

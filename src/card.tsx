@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform } from 'react-native';
 
-const Card = () => {
 
-    
+const Card = ({navigation}: {navigation: any})=> {
+
+
     const [test, setTest] = useState([
         {
             id: 1,
@@ -52,25 +53,31 @@ const Card = () => {
 
     return (
 
-        <View>
+        <View style={styles.container}>
             {Platform.OS === 'web'
                 ? <View style={styles.webView}>
-                    <TouchableOpacity>
+                     <TouchableOpacity onPress={() =>
+                        navigation.navigate('CardTest')
+                    }>
                         <Image source={require('../src/assets/icons/arrow_back.png')} style={styles.backImage} />
                     </TouchableOpacity>
                     <FlatList
                         data={test}
                         numColumns={2}
                         horizontal={false}
-                        renderItem={({ item }) => <View key={item.id} style={[styles.testWrapper, { backgroundColor: item.color }]}>
+                        renderItem={({ item }) => <TouchableOpacity onPress={() =>
+                            navigation.navigate('PrakiriTest')
+                        } key={item.id} style={[styles.testWrapper, { backgroundColor: item.color }]}>
                             <Image source={item.image} style={styles.firstWrapper} resizeMode='contain' />
                             <Text style={styles.headingTest}>{item.name}</Text>
                             <Text style={styles.subHeadingTest}>{item.subName}</Text>
-                        </View>}
+                        </TouchableOpacity>}
                     />
                 </View>
                 : <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() =>
+                        navigation.navigate('CardTest')
+                    }>
                         <Image source={require('../src/assets/icons/arrow_back.png')} style={styles.backImage} />
                     </TouchableOpacity>
                     <FlatList
@@ -78,11 +85,13 @@ const Card = () => {
                         numColumns={2}
                         horizontal={false}
 
-                        renderItem={({ item }) => <View key={item.id} style={[styles.testMobileWrapper, { backgroundColor: item.color }]}>
+                        renderItem={({ item }) => <TouchableOpacity onPress={() =>
+                            navigation.navigate('PrakiriTest')
+                        } key={item.id} style={[styles.testMobileWrapper, { backgroundColor: item.color }]}>
                             <Image source={item.image} style={styles.firstWrapper} resizeMode='contain' />
                             <Text style={styles.headingTest}>{item.name}</Text>
                             <Text style={styles.subHeadingTest}>{item.subName}</Text>
-                        </View>}
+                        </TouchableOpacity>}
                     />
                 </View>
             }
@@ -92,6 +101,12 @@ const Card = () => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // backgroundColor: '#C3E8BD',
+        paddingTop: 40,
+        paddingHorizontal: 10,
+    },
     backImage: { height: 30, width: 30 },
     firstWrapper: { height: 45, width: 45, },
     testWrapper: {
@@ -102,7 +117,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         marginTop: 15
     },
-    testMobileWrapper:{
+    testMobileWrapper: {
         width: '47%',
         paddingHorizontal: 10,
         paddingVertical: 30,
@@ -125,6 +140,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginRight: 'auto',
         marginLeft: 'auto',
+        
         // width: 480,
     },
 });
