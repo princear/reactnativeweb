@@ -123,17 +123,19 @@ const styles = StyleSheet.create({
         paddingVertical: 30,
         borderRadius: 10,
         marginHorizontal: 5,
-        marginTop: 15
+        marginTop: 15,
+       
     },
     headingTest: {
         paddingTop: 24,
-        fontFamily: 'Poppins-Bold.ttf',
+        fontFamily: 'Poppins-Bold',
         fontSize: 17,
         paddingLeft: 5
     },
     subHeadingTest: {
         paddingTop: 5,
         fontSize: 13,
+        fontFamily: 'Poppins-Medium',
         paddingLeft: 5
     },
     webView: {

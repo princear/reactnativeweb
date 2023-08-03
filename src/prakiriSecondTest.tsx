@@ -45,7 +45,7 @@ const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
                     <View style={styles.headingWrapper}>
                         <View style={styles.rowWrapper}>
                             <Image source={require('../src/assets/icons/image92.png')} style={styles.headingLeftImage} />
-                            <Text>Prakriti Test</Text>
+                            <Text style={styles.headingContainer}>Prakriti Test</Text>
                         </View>
                         <TouchableOpacity onPress={() => navigation.navigate('PrakiriThirdTest')}>
                             <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
@@ -137,6 +137,11 @@ const styles = StyleSheet.create({
         width: 450,
         marginTop:10,
     },
+    headingContainer:{
+        fontSize: 18,
+        color: '#363636',
+        fontFamily:'Poppins-Medium'
+    },
     containerWrapper:{
         flex: 1,
         paddingTop: 40,
@@ -164,6 +169,7 @@ const styles = StyleSheet.create({
     levelHeading: {
         fontSize: 18,
         color: '#363636',
+        fontFamily:'Poppins-Medium'
     },
     container: {
         marginTop: 15,
@@ -175,7 +181,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#323232',
         fontWeight: '500',
-        marginRight: 25
+        marginRight: 25,
+        fontFamily:'Poppins-Medium'
     },
     radioCircle: {
         height: 22,

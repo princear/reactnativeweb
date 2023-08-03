@@ -18,7 +18,7 @@ const PrakiriThirdTest = ({ navigation }: { navigation: any }) => {
                 <View style={styles.headingWrapper}>
                     <View style={styles.rowWrapper}>
                         <Image source={require('../src/assets/icons/image92.png')} style={styles.headingLeftImage} />
-                        <Text>Prakriti Test</Text>
+                        <Text style={styles.headingContainer}>Prakriti Test</Text>
                     </View>
                     <TouchableOpacity onPress={() => navigation.navigate('PrakiriFourthTest')}>
                         <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
@@ -57,6 +57,11 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         paddingHorizontal: 10,
     },
+    headingContainer:{
+        fontSize: 18,
+        color: '#363636',
+        fontFamily:'Poppins-Medium'
+    },
     webView: {
         flex: 1,
         marginRight: 'auto',
@@ -85,16 +90,20 @@ const styles = StyleSheet.create({
     levelHeading: {
         fontSize: 18,
         color: '#363636',
+        fontFamily:'Poppins-Medium'
     },
     levelSubHeading: {
         color: '#868686',
-        fontSize: 15,
+        fontSize: 12,
         marginTop: 10,
-        textAlign: 'justify'
+        textAlign: 'left',
+        fontFamily:'Poppins-Regular',
+        marginRight:5
     },
     buttonText: {
         color: '#2073D3',
-        fontSize: 15
+        fontSize: 15,
+        fontFamily:'Poppins-Medium'
     },
     buttonWrapper: {
         borderWidth: 1,

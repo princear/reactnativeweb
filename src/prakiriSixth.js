@@ -1,33 +1,46 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert } from 'react-native';
 
-const PrakiriFifthTest = ({ navigation }: { navigation: any }) => {
+const PrakiriSixthTest = ({navigation}) => {
 
-
-    const [choice, setChoice] = useState('')
-
-
-    const [presentation, setPresentatiomn] = useState([
+    const [drinks, setDrinks] = useState([
         {
             id: 1,
-            name: 'No, I would decline'
+            image: require('../src/assets/icons/Group26086463-1.png')
         },
         {
             id: 2,
-            name: 'Maybe, Im not sure'
+            image: require('../src/assets/icons/Group26086461.png')
         },
         {
             id: 3,
-            name: 'Yes, I d try with preparation'
+            image: require('../src/assets/icons/Group26086455.png')
         },
         {
             id: 4,
-            name: 'Yes, I d fearlessly accept and do my best'
-        }
+            image: require('../src/assets/icons/Group26086457.png')
+        },
+        {
+            id: 5,
+            image: require('../src/assets/icons/Group26086460.png')
+        },
+        {
+            id: 6,
+            image: require('../src/assets/icons/Group26086458.png')
+        },
+        {
+            id: 7,
+            image: require('../src/assets/icons/Group26086462.png')
+        },
+        {
+            id: 8,
+            image: require('../src/assets/icons/Group26086456.png')
+        },
+
     ])
-    const clickedButtonHandler = (value: string) => {
-        setChoice(value);
-    }
+
+    const [drinkSelect, setDrinkSelect] = useState('0')
+
     return (
 
         <View style={Platform.OS === 'web' ? styles.webView : styles.containerWrapper}>
@@ -38,7 +51,7 @@ const PrakiriFifthTest = ({ navigation }: { navigation: any }) => {
                         <Image source={require('../src/assets/icons/image92.png')} style={styles.headingLeftImage} />
                         <Text style={styles.headingContainer}>Prakriti Test</Text>
                     </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('PrakiriSixthTest')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('PrakiriSeventhTest')}>
                         <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
                     </TouchableOpacity>
                 </View>
@@ -46,23 +59,25 @@ const PrakiriFifthTest = ({ navigation }: { navigation: any }) => {
 
                     <Image source={require('../src/assets/icons/Group54.png')} style={styles.headingCenterImage} />
                     <View style={{ marginTop: 15, marginRight: 10, }}>
-                        <Text style={styles.levelHeading}>You're asked to give a presentation at work, but you're scared of public speaking. Would you do it?</Text>
+                        <Text style={styles.levelHeading}>In moderate temperatures, what do you prefer to have:</Text>
+                        <Text style={styles.levelSubHeading}>(Moderate temperature: Neither too hot, nor too cold; ideal temperature such as 250 C)</Text>
 
                     </View>
 
-                    <View style={{ alignItems: 'flex-end' }}>
-                        {
-                            presentation.map((item) => {
-                                return (
-                                    <TouchableOpacity key={item.id} style={[styles.buttonWrapper, { backgroundColor: choice == item.name? '#2073D3' : '#fff', }]} onPress={(e) => clickedButtonHandler(item.name)}>
-                                        <Text style={[styles.buttonText, { color: choice == item.name ? '#fff' : '#2073D3' }]}>{item.name}</Text>
-                                    </TouchableOpacity>
-                                )
-                            })
-                        }
-                    </View>
 
                 </View>
+                <View style={{ paddingBottom: 10,marginTop:10 }}>
+                    <FlatList
+                        data={drinks}
+                        numColumns={4}
+                        horizontal={false}
+                        renderItem={({ item }) => <TouchableOpacity onPress={(() => setDrinkSelect(item.id))}  key={item.id} style={[styles.boxWrapper,{borderColor:item.id == drinkSelect ? '#3460D7' :'#8F8F8F'}]}>
+                            <Image source={item.image} style={styles.wrappImage} resizeMode='contain' />
+
+                        </TouchableOpacity>}
+                    />
+                </View>
+
             </View>
         </View>
     );
@@ -108,26 +123,33 @@ const styles = StyleSheet.create({
     levelHeading: {
         fontSize: 18,
         color: '#363636',
-        fontFamily:'Poppins-Medium'
+        fontFamily: 'Poppins-Medium'
     },
-
-    buttonText: {
-        color: '#2073D3',
-        fontSize: 14,
-        fontFamily:'Poppins-Medium'
-    },
-    buttonWrapper: {
-        borderWidth: 1,
+    levelSubHeading: {
+        color: '#868686',
+        fontSize: 13,
         marginTop: 10,
-        borderColor: '#2073D3',
-        paddingHorizontal:20,
-        paddingVertical: 10,
-        borderRadius: 30,
+        textAlign: 'justify',
+        fontFamily: 'Poppins-Regular'
+    },
+    wrappImage: {
+        height: 90,
+        width: 60,
+    },
+    boxWrapper: {
+        height: 120,
+        width: 75,
+        borderWidth: 1,
+        marginLeft: 10,
+        marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius:10,
+        backgroundColor:'#fff'
     }
+
 
 
 });
 
-export default PrakiriFifthTest;
+export default PrakiriSixthTest;
