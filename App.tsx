@@ -13,6 +13,11 @@ import PrakiriSeventhTest from './src/prakiriSeventh';
 import PrakiriEigthTest from './src/prakiriEigth';
 import PrakiriNinthTest from './src/prakiriNinth';
 import PrakiriTenthTest from './src/prakiriTenth';
+import PsychlogicalThird from './src/Psychological/third';
+import PsychlogicalSecond from './src/Psychological/Second';
+import PsychlogicalFirst from './src/Psychological/first';
+import PsychlogicalFourth from './src/Psychological/fourth';
+import PsychlogicalFifth from './src/Psychological/fifth';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -74,6 +79,27 @@ const App = () => {
           headerShown: false,
           gestureEnabled: false
         }} />
+         <Stack.Screen name="PsychlogicalFirst" component={PsychlogicalFirst} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PsychlogicalSecond" component={PsychlogicalSecond} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PsychlogicalThird" component={PsychlogicalThird} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PsychlogicalFourth" component={PsychlogicalFourth} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PsychlogicalFifth" component={PsychlogicalFifth} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+        
         
       </Stack.Navigator>
     </NavigationContainer>

@@ -66,7 +66,8 @@ const Card = ({navigation}: {navigation: any})=> {
                         numColumns={2}
                         horizontal={false}
                         renderItem={({ item }) => <TouchableOpacity onPress={() =>
-                            navigation.navigate('PrakiriTest')
+                            // navigation.navigate('PrakiriTest')
+                            navigation.navigate('PsychlogicalThird')
                         } key={item.id} style={[styles.testWrapper, { backgroundColor: item.color }]}>
                             <Image source={item.image} style={styles.firstWrapper} resizeMode='contain' />
                             <Text style={styles.headingTest}>{item.name}</Text>
@@ -87,6 +88,7 @@ const Card = ({navigation}: {navigation: any})=> {
 
                         renderItem={({ item }) => <TouchableOpacity onPress={() =>
                             navigation.navigate('PrakiriTest')
+                            
                         } key={item.id} style={[styles.testMobileWrapper, { backgroundColor: item.color }]}>
                             <Image source={item.image} style={styles.firstWrapper} resizeMode='contain' />
                             <Text style={styles.headingTest}>{item.name}</Text>

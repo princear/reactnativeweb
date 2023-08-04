@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     },
     boxWrapper: {
         height: 120,
-        width: 75,
+        width: 70,
         borderWidth: 1,
         marginLeft: 10,
         marginTop: 10,
