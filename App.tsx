@@ -18,6 +18,8 @@ import PsychlogicalSecond from './src/Psychological/Second';
 import PsychlogicalFirst from './src/Psychological/first';
 import PsychlogicalFourth from './src/Psychological/fourth';
 import PsychlogicalFifth from './src/Psychological/fifth';
+import PsychlogicalSixth from './src/Psychological/sixth';
+import PsychologicalSeventh from './src/Psychological/seventh';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -96,6 +98,14 @@ const App = () => {
           gestureEnabled: false
         }} />
          <Stack.Screen name="PsychlogicalFifth" component={PsychlogicalFifth} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+        <Stack.Screen name="PsychlogicalSixth" component={PsychlogicalSixth} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PsychologicalSeventh" component={PsychologicalSeventh} options={{
           headerShown: false,
           gestureEnabled: false
         }} />
