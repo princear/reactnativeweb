@@ -34,7 +34,7 @@ const PsychlogicalFirst = ({ navigation }) => {
                         <Image source={require('../assets/icons/image92.png')} style={styles.headingLeftImage} />
                         <Text style={styles.headingContainer}>Prakriti Test</Text>
                     </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('PrakiriNinthTest')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('PsychlogicalSecond')}>
                         <Image source={require('../assets/icons/close.png')} style={styles.headingLeftImage} />
                     </TouchableOpacity>
                 </View>
