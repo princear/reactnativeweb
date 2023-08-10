@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
 
 const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
 
@@ -51,9 +51,25 @@ const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
                             <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
                         </TouchableOpacity>
                     </View>
-                    <View style={{ marginTop: Platform.OS == 'web'? '60%':'60%' }}>
 
-                        <Image source={require('../src/assets/icons/Group54.png')} style={styles.headingCenterImage} />
+                    <View style={{ marginTop: 20 }}>
+                    <View style={styles.progressBarOuterWrapper}>
+                        <Text style={styles.progressPercentWrapper}>0% completed</Text>
+                        <View style={styles.rightWrapper}>
+                            <Image resizeMode='contain' source={require('./assets/icons/schedule_black.png')} style={styles.rightImage} />
+                            <Text style={styles.minutesTextWrapper}>60 minutes</Text>
+                        </View>
+
+                    </View>
+                    <View style={styles.progressBar}>
+                        <Animated.View style={[StyleSheet.absoluteFill,styles.progressData]} />
+                    </View>
+
+                </View>
+                    <View>
+                    <View style={{ alignItems: 'center', marginTop: '10%' }}>
+                        <Image source={require('../src/assets/icons/Group26086697.png')} style={styles.headingCenterImage} />
+                        </View>
                         <View style={{ marginTop: 15 }}>
                             <Text style={styles.levelHeading}>When there is a discussion, do you take control of the conversation and make sure your views are heard?</Text>
                         </View>
@@ -71,7 +87,7 @@ const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
                                                 }}>
                                                 {value === res.key && <View style={styles.selectedRb} />}
                                             </TouchableOpacity>
-                                            <Text style={styles.radioText}>{res.text}</Text>
+                                            <Text style={[styles.radioText,{fontFamily: value == res.key ?"Poppins-SemiBold" :"Poppins-Regular"}]}>{res.text}</Text>
 
                                         </View>
                                     );
@@ -93,7 +109,7 @@ const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
                                                 }}>
                                                 {worker === res.key && <View style={styles.selectedRb} />}
                                             </TouchableOpacity>
-                                            <Text style={styles.radioText}>{res.text}</Text>
+                                            <Text style={[styles.radioText,{fontFamily: worker == res.key ?"Poppins-SemiBold" :"Poppins-Regular"}]}>{res.text}</Text>
 
                                         </View>
                                     );
@@ -115,7 +131,7 @@ const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
                                                 }}>
                                                 {memberValue === res.key && <View style={styles.selectedRb} />}
                                             </TouchableOpacity>
-                                            <Text style={styles.radioText}>{res.text}</Text>
+                                            <Text style={[styles.radioText,{fontFamily: memberValue == res.key ?"Poppins-SemiBold" :"Poppins-Regular"}]}>{res.text}</Text>
 
                                         </View>
                                     );
@@ -146,6 +162,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 40,
         paddingHorizontal: 10,
+        backgroundColor:'#fff'
     },
    
     headingWrapper: {
@@ -163,13 +180,13 @@ const styles = StyleSheet.create({
         width: 35
     },
     headingCenterImage: {
-        height: 70,
-        width: 70
+        height: 140,
+        width: 140
     },
     levelHeading: {
-        fontSize: 18,
+        fontSize: 16,
         color: '#363636',
-        fontFamily:'Poppins-Medium'
+        fontFamily: 'Poppins-SemiBold'
     },
     container: {
         marginTop: 15,
@@ -178,7 +195,7 @@ const styles = StyleSheet.create({
     },
     radioText: {
         marginLeft: 10,
-        fontSize: 16,
+        fontSize: 14,
         color: '#323232',
         fontWeight: '500',
         marginRight: 25,
@@ -200,7 +217,23 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: '#3460D7',
     },
+    progressBarOuterWrapper:{ justifyContent: 'space-between', flexDirection: 'row', marginBottom: 6 },
+    progressPercentWrapper:{ fontSize: 12, fontFamily: 'Poppins-Medium', color: '#B0B0B0' },
+    rightWrapper:{ flexDirection: 'row', alignItems: 'center', marginRight: 10 },
+    rightImage:{ height: 15, width: 15 },
+    minutesTextWrapper:{ fontSize: 9, fontFamily: 'Poppins-Medium', color: '#B0B0B0', marginLeft: 5 },
+    progressBar: {
+        height: 10,
+        width: '98%',
+        borderColor: '#BFD3EF',
+        borderWidth: 2,
+        borderRadius: 10
+    },
+    progressData:{
+       backgroundColor: "#2073D3", width: '5%',
+       borderRadius: 10
 
+    },
 });
 
 export default PrakiriSecondTest;

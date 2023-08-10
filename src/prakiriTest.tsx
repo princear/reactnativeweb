@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
-import * as Progress from 'react-native-progress';
 
 const PrakiriTest = ({ navigation }: { navigation: any }) => {
 
@@ -67,11 +66,8 @@ const PrakiriTest = ({ navigation }: { navigation: any }) => {
                         <Animated.View style={[StyleSheet.absoluteFill,styles.progressData]} />
                     </View>
 
-                    {/* <Progress.Bar progress={0.1} width={320} height={6} /> */}
                 </View>
-                <View
-                //  style={{ marginTop: '40%' }}
-                >
+                <View>
                     <View style={{ alignItems: 'center', marginTop: '10%' }}>
                         <Image source={require('../src/assets/icons/Group26086693.png')} style={styles.headingCenterImage} />
                     </View>
@@ -92,7 +88,7 @@ const PrakiriTest = ({ navigation }: { navigation: any }) => {
                                             }}>
                                             {value === res.key && <View style={styles.selectedRb} />}
                                         </TouchableOpacity>
-                                        <Text style={styles.radioText}>{res.text}</Text>
+                                        <Text style={[styles.radioText,{fontFamily: value == res.key ?"Poppins-SemiBold" :"Poppins-Regular"}]}>{res.text}</Text>
 
                                     </View>
                                 );
@@ -114,7 +110,7 @@ const PrakiriTest = ({ navigation }: { navigation: any }) => {
                                             }}>
                                             {worker === res.key && <View style={styles.selectedRb} />}
                                         </TouchableOpacity>
-                                        <Text style={styles.radioText}>{res.text}</Text>
+                                        <Text style={[styles.radioText,{fontFamily: worker == res.key ?"Poppins-SemiBold" :"Poppins-Regular"}]}>{res.text}</Text>
 
                                     </View>
                                 );
@@ -136,7 +132,7 @@ const PrakiriTest = ({ navigation }: { navigation: any }) => {
                                             }}>
                                             {memberValue === res.key && <View style={styles.selectedRb} />}
                                         </TouchableOpacity>
-                                        <Text style={styles.radioText}>{res.text}</Text>
+                                        <Text style={[styles.radioText,{fontFamily: memberValue == res.key ?"Poppins-SemiBold" :"Poppins-Regular"}]}>{res.text}</Text>
 
                                     </View>
                                 );
@@ -156,6 +152,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 40,
         paddingHorizontal: 10,
+        backgroundColor:'#fff'
     },
     headingContainer: {
         fontSize: 18,
@@ -187,9 +184,9 @@ const styles = StyleSheet.create({
         width: 170
     },
     levelHeading: {
-        fontSize: 18,
+        fontSize: 16,
         color: '#363636',
-        fontFamily: 'Poppins-Medium'
+        fontFamily: 'Poppins-SemiBold'
     },
     container: {
         marginTop: 15,
@@ -198,11 +195,11 @@ const styles = StyleSheet.create({
     },
     radioText: {
         marginLeft: 10,
-        fontSize: 16,
+        fontSize: 14,
         color: '#323232',
         fontWeight: '500',
         marginRight: 25,
-        fontFamily: 'Poppins-Medium'
+        fontFamily: 'Poppins-Regular'
     },
     radioCircle: {
         height: 22,
@@ -233,10 +230,10 @@ const styles = StyleSheet.create({
 
     },
     progressBarOuterWrapper:{ justifyContent: 'space-between', flexDirection: 'row', marginBottom: 6 },
-    progressPercentWrapper:{ fontSize: 12, fontFamily: 'Poppins-Regular', color: '#B0B0B0' },
+    progressPercentWrapper:{ fontSize: 12, fontFamily: 'Poppins-Medium', color: '#B0B0B0' },
     rightWrapper:{ flexDirection: 'row', alignItems: 'center', marginRight: 10 },
     rightImage:{ height: 15, width: 15 },
-    minutesTextWrapper:{ fontSize: 10, fontFamily: 'Poppins-Regular', color: '#B0B0B0', marginLeft: 5 },
+    minutesTextWrapper:{ fontSize: 9, fontFamily: 'Poppins-Medium', color: '#B0B0B0', marginLeft: 5 },
 
 
 });

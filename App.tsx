@@ -20,6 +20,15 @@ import PsychlogicalFourth from './src/Psychological/fourth';
 import PsychlogicalFifth from './src/Psychological/fifth';
 import PsychlogicalSixth from './src/Psychological/sixth';
 import PsychologicalSeventh from './src/Psychological/seventh';
+import PrakiriEvelvenTest from './src/prakiriEleven';
+import PrakiriTwelveTest from './src/prakiritwelve';
+import PrakiriThirteenTest from './src/prakirithirteen';
+import PrakiriFourteenTest from './src/prakirifourteen';
+import PrakiriFifteenTest from './src/prakirififteen';
+import PrakiriSixteenTest from './src/prakirisixteen';
+import PrakiriSeventeenTest from './src/prakiriseventeen';
+import PrakiriEighteenTest from './src/prakirieighteen';
+import PrakiriNineteenTest from './src/prakirinineteen';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -77,7 +86,50 @@ const App = () => {
           headerShown: false,
           gestureEnabled: false
         }} />
-         <Stack.Screen name="PrakiriTenthTest" component={PrakiriTenthTest} options={{
+         <Stack.Screen name="PrakiriEvelvenTest" component={PrakiriEvelvenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PrakiriTwelveTest" component={PrakiriTwelveTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+        <Stack.Screen name="PrakiriThirteenTest" component={PrakiriThirteenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PrakiriFourteenTest" component={PrakiriFourteenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PrakiriFifteenTest" component={PrakiriFifteenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+           <Stack.Screen name="PrakiriSixteenTest" component={PrakiriSixteenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+          <Stack.Screen name="PrakiriSeventeenTest" component={PrakiriSeventeenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+         <Stack.Screen name="PrakiriEighteenTest" component={PrakiriEighteenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+        <Stack.Screen name="PrakiriNineteenTest" component={PrakiriNineteenTest} options={{
+          headerShown: false,
+          gestureEnabled: false
+        }} />
+        
+
+
+
+
+
+
+           <Stack.Screen name="PsychologicalSeventh" component={PsychologicalSeventh} options={{
           headerShown: false,
           gestureEnabled: false
         }} />
@@ -105,10 +157,7 @@ const App = () => {
           headerShown: false,
           gestureEnabled: false
         }} />
-         <Stack.Screen name="PsychologicalSeventh" component={PsychologicalSeventh} options={{
-          headerShown: false,
-          gestureEnabled: false
-        }} />
+   
         
         
       </Stack.Navigator>
