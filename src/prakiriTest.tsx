@@ -49,7 +49,7 @@ const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
                             <Image source={require('../src/assets/icons/image92.png')} style={styles.headingLeftImage} />
                             <Text style={styles.headingContainer}>Prakriti Test</Text>
                         </View>
-                        <TouchableOpacity onPress={() => navigation.navigate('PrakiriThirdTest')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('PrakiriSecondTest')}>
                             <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
                         </TouchableOpacity>
                     </View>
