@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
 
-const PrakiriSecondTest = ({navigation}: {navigation: any}) => {
+const PrakiriTest = ({navigation}: {navigation: any}) => {
 
     const familyTest = [
         {
@@ -236,4 +236,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default PrakiriSecondTest;
+export default PrakiriTest;

@@ -66,8 +66,7 @@ const Card = ({navigation}: {navigation: any})=> {
                         numColumns={2}
                         horizontal={false}
                         renderItem={({ item }) => <TouchableOpacity onPress={() =>
-                            // navigation.navigate('PrakiriTest')
-                            navigation.navigate('PsychlogicalThird')
+                            navigation.navigate('PrakiriTest')
                         } key={item.id} style={[styles.testWrapper, { backgroundColor: item.color }]}>
                             <Image source={item.image} style={styles.firstWrapper} resizeMode='contain' />
                             <Text style={styles.headingTest}>{item.name}</Text>
@@ -144,7 +143,7 @@ const styles = StyleSheet.create({
         flex: 1,
         marginRight: 'auto',
         marginLeft: 'auto',
-        
+        // backgroundColor:'#fff'
         // width: 480,
     },
 });

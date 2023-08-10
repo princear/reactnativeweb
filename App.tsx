@@ -29,6 +29,8 @@ import PrakiriSixteenTest from './src/prakirisixteen';
 import PrakiriSeventeenTest from './src/prakiriseventeen';
 import PrakiriEighteenTest from './src/prakirieighteen';
 import PrakiriNineteenTest from './src/prakirinineteen';
+import { Provider } from 'react-redux';
+import store from './src/assets/Redux/Store';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -36,6 +38,7 @@ const App = () => {
   const Stack = createNativeStackNavigator();
 
   return (
+    <Provider store={store}>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -162,7 +165,7 @@ const App = () => {
         
       </Stack.Navigator>
     </NavigationContainer>
-
+    </Provider>
   );
 };
 
