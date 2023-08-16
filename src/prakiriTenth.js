@@ -25,8 +25,11 @@ const PrakiriTenthTest = ({ navigation }) => {
             name: 'Consider the feedback, even if difficult'
         }
     ])
-    const clickedButtonHandler = (value) => {
-        setChoice(value);
+    const navigationPreviousFlow = () => {
+        navigation.navigate('PrakiriNinthTest')
+    }
+    const navigationFlow = () => {
+        navigation.navigate('PsychlogicalFirst')
     }
     return (
 

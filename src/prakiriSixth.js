@@ -121,11 +121,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: '#fff',
   },
-  headingContainer: {
-    fontSize: 18,
-    color: '#363636',
-    fontFamily: 'Poppins-Medium',
-  },
   webView: {
     flex: 1,
     marginRight: 'auto',
@@ -133,36 +128,7 @@ const styles = StyleSheet.create({
     width: 450,
     marginTop: 10,
   },
-  headingWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginRight: 10,
-  },
-  rowWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  headingLeftImage: {
-    height: 35,
-    width: 35,
-  },
-  headingCenterImage: {
-    height: 70,
-    width: 70,
-  },
-  levelHeading: {
-    fontSize: 16,
-    color: '#363636',
-    fontFamily: 'Poppins-SemiBold',
-  },
-  levelSubHeading: {
-    color: '#868686',
-    fontSize: 13,
-    marginTop: 10,
-    textAlign: 'justify',
-    fontFamily: 'Poppins-Regular',
-  },
+
   wrappImage: {
     height: 90,
     width: 60,
@@ -178,12 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#fff',
   },
-  progressBarOuterWrapper: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    marginBottom: 6,
-  },
-  
+
 });
 
 export default PrakiriSixthTest;

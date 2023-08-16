@@ -15,7 +15,7 @@ export default function HeaderComponent({props}) {
             <Image source={require('../assets/icons/image92.png')} style={styles.headingLeftImage} />
             <Text style={styles.headingContainer}>{props}</Text>
         </View>
-        <TouchableOpacity onPress={() => navigateData()}>
+        <TouchableOpacity>
             <Image source={require('../assets/icons/close.png')} style={styles.headingLeftImage} />
         </TouchableOpacity>
     </View>

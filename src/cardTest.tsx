@@ -12,13 +12,13 @@ const CardTest =  ({navigation}: {navigation: any}) => {
             <Image source={require('../src/assets/icons/Group26086436.png')} style={{ marginTop: '13%', height:Platform.OS === 'web' ? '70%' : '40%', width: Platform.OS === 'web' ? '30%' :'80%', resizeMode: 'contain' }} />
 
             <View style={{ justifyContent: 'center', alignItems: 'center', width: Platform.OS === 'web' ? '25%' : '80%', marginTop: Platform.OS === 'web' ? '3%' : '10%' }}>
-                <Text style={{color:"#363636", fontSize: Platform.OS === 'web' ? 27 : 20, fontFamily:'Poppins-Bold' }}>Prakriti Test</Text>
+                <Text style={{color:"#363636", fontSize: Platform.OS === 'web' ? 27 : 20, fontFamily:'Poppins-SemiBold' }}>Prakriti Test</Text>
                 <Text style={styles.elementText}>We'll ask a few questions to evaluate your body's function and elements</Text>
-                <Text style={styles.elementText}>This test is for once in everyone’s lifetime</Text>
+                <Text style={[styles.elementText,{width:wp(70),}]}>This test is for once in everyone’s lifetime</Text>
                 <Text style={styles.subHeadingText}>All the information that you provide will only be used for legitimate diagnosis and determination.</Text>
             </View>
             <TouchableOpacity  
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => navigation.navigate('PrakiriTest')}
                          style={styles.continueWrapper}>
                 <Text style={styles.continueText}>Continue</Text>
             </TouchableOpacity>
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
 
     },
    
-    elementText:{color:"#363636", fontSize: 14, textAlign: 'center',width:wp(70), marginTop: 26,fontFamily:'Poppins-Medium' },
-    subHeadingText:{color:"#363636", fontSize: 9, textAlign: 'center', marginTop: hp(5) ,fontFamily:'Poppins-Regular'},
+    elementText:{color:"#363636", fontSize: 14, textAlign: 'center',lineHeight:22, marginTop: 26,fontFamily:'Poppins-Medium' },
+    subHeadingText:{color:"#363636", fontSize: 9, textAlign: 'center', marginTop: hp(5) ,fontFamily:'Poppins-Medium'},
     continueWrapper:{ 
         width: Platform.OS === 'web' ? '30%' : '85%', 
         marginTop: Platform.OS === 'web' ? '5%' : wp(5), 

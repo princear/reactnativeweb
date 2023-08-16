@@ -47,7 +47,7 @@ const PrakiriFourteenTest = ({navigation}) => {
         <ProgressBarContainer />
         </View>
         <View>
-          <View style={{alignItems: 'center', marginTop: '10%'}}>
+          <View style={{alignItems: 'center',}}>
             <Image
               source={require('../src/assets/icons/cuate.png')}
               style={styles.headingCenterImage}

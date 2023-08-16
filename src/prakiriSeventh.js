@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
+import HeaderComponent from './Component/HeaderComponent';
+import ProgressBarContainer from './Component/ProgressBar';
+import QuestionText from './Component/QuestionText';
+import BottomNavigation from './Component/BottomNavigation';
 
 const PrakiriSeventhTest = ({ navigation }) => {
 
@@ -8,40 +12,27 @@ const PrakiriSeventhTest = ({ navigation }) => {
     const [familySelect, setFamilySelect] = useState('')
     const [coWorker, setCoWorker] = useState('')
 
+    const navigationPreviousFlow = () => {
+        navigation.navigate('PrakiriSixthTest')
+      }
+      const navigationFlow = () => {
+        navigation.navigate('PrakiriEigthTest')
+      }
     return (
 
         <View style={Platform.OS === 'web' ? styles.webView : styles.containerWrapper}>
 
             <View style={{ marginLeft: 10 }}>
-                <View style={styles.headingWrapper}>
-                    <View style={styles.rowWrapper}>
-                        <Image source={require('../src/assets/icons/image92.png')} style={styles.headingLeftImage} />
-                        <Text style={styles.headingContainer}>Prakriti Test</Text>
-                    </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('PrakiriEigthTest')}>
-                        <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
-                    </TouchableOpacity>
-                </View>
+            <HeaderComponent props='Prakriti Test' />
                 <View style={{ marginTop: 20 }}>
-                    <View style={styles.progressBarOuterWrapper}>
-                        <Text style={styles.progressPercentWrapper}>0% completed</Text>
-                        <View style={styles.rightWrapper}>
-                            <Image resizeMode='contain' source={require('./assets/icons/schedule_black.png')} style={styles.rightImage} />
-                            <Text style={styles.minutesTextWrapper}>60 minutes</Text>
-                        </View>
-
-                    </View>
-                    <View style={styles.progressBar}>
-                        <Animated.View style={[StyleSheet.absoluteFill,styles.progressData]} />
-                    </View>
-
+                    <ProgressBarContainer />
                 </View>
                 <View >
                 <View style={{ alignItems: 'center', marginTop: '10%' }}>
                     <Image source={require('../src/assets/icons/Character1.png')} style={styles.headingCenterImage} />
-                    </View>
+                 </View>
                     <View style={{ marginTop: 15, marginRight: 10, }}>
-                        <Text style={styles.levelHeading}>Have you ever had a disagreement that caused a permanent tension between you two, resulting in a broken relationship?</Text>
+                        <QuestionText>Have you ever had a disagreement that caused a permanent tension between you two, resulting in a broken relationship?</QuestionText>
 
                     </View>
                     <View style={styles.friendsWrapper}>
@@ -85,6 +76,8 @@ const PrakiriSeventhTest = ({ navigation }) => {
                     </View>
                 </View>
                 
+                <BottomNavigation navigateData={navigationFlow} navigatePreviousData={navigationPreviousFlow} />
+
 
             </View>
         </View>
