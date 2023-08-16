@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
+import QuestionText from './Component/QuestionText';
+import SubHeading from './Component/SubHeading';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import FullWidthOption from './Component/FullWidthOption';
+import FullWidthText from './Component/FullWidthText';
+import HeaderComponent from './Component/HeaderComponent';
+import ProgressBarContainer from './Component/ProgressBar';
+import ButtonFullWidth from './Component/ButtonFullWidth';
+import BottomNavigation from './Component/BottomNavigation';
+
 
 const PrakiriThirdTest = ({ navigation }: { navigation: any }) => {
 
@@ -7,60 +17,41 @@ const PrakiriThirdTest = ({ navigation }: { navigation: any }) => {
     const [choice, setChoice] = useState('')
 
 
-    const clickedButtonHandler = (value: string) => {
+    const pressedButton = (value: string) => {
         setChoice(value);
+
+    }
+    const navigationPreviousFlow = () => {
+        navigation.navigate('PrakiriThirdTest')
+    }
+    const navigationFlow = () => {
+        navigation.navigate('PrakiriEvelvenTest')
     }
     return (
-        
+
 
         <View style={Platform.OS === 'web' ? styles.webView : styles.containerWrapper}>
 
             <View style={{ marginLeft: 10 }}>
-                <View style={styles.headingWrapper}>
-                    <View style={styles.rowWrapper}>
-                        <Image source={require('../src/assets/icons/image92.png')} style={styles.headingLeftImage} />
-                        <Text style={styles.headingContainer}>Prakriti Test</Text>
-                    </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('PrakiriEvelvenTest')}>
-                        <Image source={require('../src/assets/icons/close.png')} style={styles.headingLeftImage} />
-                    </TouchableOpacity>
-                </View>
+                <HeaderComponent props='Prakriti Test' />
+
+
                 <View style={{ marginTop: 20 }}>
-                    <View style={styles.progressBarOuterWrapper}>
-                        <Text style={styles.progressPercentWrapper}>0% completed</Text>
-                        <View style={styles.rightWrapper}>
-                            <Image resizeMode='contain' source={require('./assets/icons/schedule_black.png')} style={styles.rightImage} />
-                            <Text style={styles.minutesTextWrapper}>60 minutes</Text>
-                        </View>
-
-                    </View>
-                    <View style={styles.progressBar}>
-                        <Animated.View style={[StyleSheet.absoluteFill,styles.progressData]} />
-                    </View>
-
+                    <ProgressBarContainer />
                 </View>
                 <View>
-                <View style={{ alignItems: 'center', marginTop: '10%' }}>
-
-                    <Image source={require('../src/assets/icons/image137.png')} style={styles.headingCenterImage} />
+                    <View style={{ alignItems: 'center', marginTop: '10%' }}>
+                        <Image source={require('../src/assets/icons/image137.png')} style={styles.headingCenterImage} />
                     </View>
-                    <View style={{ marginTop: 15, marginRight: 10, }}>
-                        <Text style={styles.levelHeading}>Would you decribe yourself as soft-spoken?</Text>
-                        <Text style={styles.levelSubHeading}>(Soft-spoken: Having a pleasant, quiet, or gentle voice or manner. It can be described as having a speaking manner that is not loud or harsh.)</Text>
-
+                    <View style={{ marginTop: wp(5), marginRight: 10, }}>
+                        <QuestionText>Would you decribe yourself as soft-spoken?</QuestionText>
+                        <SubHeading>(Soft-spoken: Having a pleasant, quiet, or gentle voice or manner. It can be described as having a speaking manner that is not loud or harsh.)</SubHeading>
                     </View>
 
-                    <View style={{ alignItems: 'flex-end', marginTop:20 }}>
-                        <TouchableOpacity style={[styles.buttonWrapper, { backgroundColor: choice == 'Yes' ? '#2073D3' : '#fff', }]} onPress={(e) => clickedButtonHandler('Yes')}>
-                            <Text style={[styles.buttonText, { color: choice == 'Yes' ? '#fff' : '#2073D3' }]}>Yes</Text>
-
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.buttonWrapper, { backgroundColor: choice == 'No' ? '#2073D3' : '#fff' }]} onPress={() => clickedButtonHandler('No')}>
-                            <Text style={[styles.buttonText, { color: choice == 'No' ? '#fff' : '#2073D3' }]}>No</Text>
-
-                        </TouchableOpacity>
+                    <View style={{ marginTop: 20 }}>
+                        <ButtonFullWidth choice={choice} clickedButtonHandler={pressedButton} />
                     </View>
-
+                    <BottomNavigation navigateData={navigationFlow} navigatePreviousData={navigationPreviousFlow} />
                 </View>
             </View>
         </View>
@@ -73,84 +64,29 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 40,
         paddingHorizontal: 10,
-        backgroundColor:'#fff'
+        backgroundColor: '#fff'
     },
-    headingContainer:{
-        fontSize: 18,
-        color: '#363636',
-        fontFamily:'Poppins-Medium'
-    },
+
     webView: {
         flex: 1,
         marginRight: 'auto',
         marginLeft: 'auto',
         width: 450,
-        marginTop:10,
+        marginTop: 10,
     },
-    headingWrapper: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginRight: 10,
-    },
-    rowWrapper: {
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
+  
     headingLeftImage: {
         height: 35,
         width: 35
     },
+
     headingCenterImage: {
         height: 170,
         width: 240,
-        resizeMode:'contain'
+        resizeMode: 'contain'
     },
-    levelHeading: {
-        fontSize: 16,
-        color: '#363636',
-        fontFamily:'Poppins-SemiBold'
-    },
-    levelSubHeading: {
-        color: '#868686',
-        fontSize: 12,
-        marginTop: 10,
-        textAlign: 'left',
-        fontFamily:'Poppins-Medium',
-        marginRight:5
-    },
-    buttonText: {
-        color: '#2073D3',
-        fontSize: 15,
-        fontFamily:'Poppins-Medium'
-    },
-    buttonWrapper: {
-        borderWidth: 1,
-        marginTop: 10,
-        borderColor: '#2073D3',
-        width: '22%',
-        paddingVertical: 10,
-        borderRadius: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    progressBarOuterWrapper:{ justifyContent: 'space-between', flexDirection: 'row', marginBottom: 6 },
-    progressPercentWrapper:{ fontSize: 12, fontFamily: 'Poppins-Medium', color: '#B0B0B0' },
-    rightWrapper:{ flexDirection: 'row', alignItems: 'center', marginRight: 10 },
-    rightImage:{ height: 15, width: 15 },
-    minutesTextWrapper:{ fontSize: 9, fontFamily: 'Poppins-Medium', color: '#B0B0B0', marginLeft: 5 },
-    progressBar: {
-        height: 10,
-        width: '98%',
-        borderColor: '#BFD3EF',
-        borderWidth: 2,
-        borderRadius: 10
-    },
-    progressData:{
-       backgroundColor: "#2073D3", width: '5%',
-       borderRadius: 10
-
-    },
+  
+    
 
 
 });

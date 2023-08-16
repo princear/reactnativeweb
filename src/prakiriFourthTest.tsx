@@ -28,7 +28,7 @@ const PrakiriFourthTest = ({ navigation }: { navigation: any }) => {
 
                     <Image source={require('../src/assets/icons/Group54.png')} style={styles.headingCenterImage} />
                     <View style={{ marginTop: 15, marginRight: 10, }}>
-                        <Text style={styles.levelHeading}>Can you speak at length on any topic of your choice?</Text>
+                        <Text style={styles.levelHeading}>dddddd Can you speak at length on any topic of your choice?</Text>
                         <Text style={styles.levelSubHeading}>(Topics such as pollution, politics, hobbies, equality etc)</Text>
 
                     </View>

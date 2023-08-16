@@ -43,7 +43,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={Card}
+          component={PrakiriTest}
           options={{
             headerShown: false,
             gestureEnabled: false

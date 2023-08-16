@@ -66,7 +66,7 @@ const PrakiriFifthTest = ({ navigation }: { navigation: any }) => {
 
                     </View>
 
-                    <View style={{ alignItems: 'flex-end' }}>
+                    <View style={{ }}>
                         {
                             presentation.map((item) => {
                                 return (
