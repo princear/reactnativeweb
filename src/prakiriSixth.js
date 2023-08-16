@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -15,8 +15,13 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import BottomNavigation from './Component/BottomNavigation';
+import HeaderComponent from './Component/HeaderComponent';
+import ProgressBarContainer from './Component/ProgressBar';
+import QuestionText from './Component/QuestionText';
+import SubHeading from './Component/SubHeading';
 
-const PrakiriSixthTest = ({navigation}) => {
+const PrakiriSixthTest = ({ navigation }) => {
   const [drinks, setDrinks] = useState([
     {
       id: 1,
@@ -54,67 +59,44 @@ const PrakiriSixthTest = ({navigation}) => {
 
   const [drinkSelect, setDrinkSelect] = useState('0');
 
+  const navigationPreviousFlow = () => {
+    navigation.navigate('PrakiriSixteenTest')
+  }
+  const navigationFlow = () => {
+    navigation.navigate('PrakiriSeventhTest')
+  }
   return (
     <View
       style={Platform.OS === 'web' ? styles.webView : styles.containerWrapper}>
-      <View style={{marginLeft: 10}}>
-        <View style={styles.headingWrapper}>
-          <View style={styles.rowWrapper}>
-            <Image
-              source={require('../src/assets/icons/image92.png')}
-              style={styles.headingLeftImage}
-            />
-            <Text style={styles.headingContainer}>Prakriti Test</Text>
-          </View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('PrakiriSeventhTest')}>
-            <Image
-              source={require('../src/assets/icons/close.png')}
-              style={styles.headingLeftImage}
-            />
-          </TouchableOpacity>
+      <View style={{ marginLeft: 10 }}>
+        <HeaderComponent props='Prakriti Test' />
+
+        <View style={{ marginTop: 20 }}>
+          <ProgressBarContainer />
         </View>
-        <View style={{marginTop: 20}}>
-          <View style={styles.progressBarOuterWrapper}>
-            <Text style={styles.progressPercentWrapper}>0% completed</Text>
-            <View style={styles.rightWrapper}>
-              <Image
-                resizeMode="contain"
-                source={require('./assets/icons/schedule_black.png')}
-                style={styles.rightImage}
-              />
-              <Text style={styles.minutesTextWrapper}>60 minutes</Text>
-            </View>
-          </View>
-          <View style={styles.progressBar}>
-            <Animated.View
-              style={[StyleSheet.absoluteFill, styles.progressData]}
-            />
-          </View>
-        </View>
-        <View style={{marginTop: Platform.OS == 'web' ? '60%' : '40%'}}>
-          <View style={{marginTop: 15, marginRight: 10}}>
-            <Text style={styles.levelHeading}>
+        <View style={{ marginTop: Platform.OS == 'web' ? '60%' : '40%' }}>
+          <View style={{ marginTop: 15, marginRight: 10 }}>
+            <QuestionText>
               In moderate temperatures, what do you prefer to have:
-            </Text>
-            <Text style={styles.levelSubHeading}>
+            </QuestionText>
+            <SubHeading >
               (Moderate temperature: Neither too hot, nor too cold; ideal
               temperature such as 250 C)
-            </Text>
+            </SubHeading>
           </View>
         </View>
-        <View style={{paddingBottom: 10, marginTop: 10}}>
+        <View style={{ paddingBottom: 10, marginTop: 10 }}>
           <FlatList
             data={drinks}
             numColumns={4}
             horizontal={false}
-            renderItem={({item}) => (
+            renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => setDrinkSelect(item.id)}
                 key={item.id}
                 style={[
                   styles.boxWrapper,
-                  {borderColor: item.id == drinkSelect ? '#3460D7' : '#8F8F8F'},
+                  { borderColor: item.id == drinkSelect ? '#3460D7' : '#8F8F8F' },
                 ]}>
                 <Image
                   source={item.image}
@@ -125,6 +107,8 @@ const PrakiriSixthTest = ({navigation}) => {
             )}
           />
         </View>
+        <BottomNavigation navigateData={navigationFlow} navigatePreviousData={navigationPreviousFlow} />
+
       </View>
     </View>
   );
@@ -199,31 +183,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 6,
   },
-  progressPercentWrapper: {
-    fontSize: 12,
-    fontFamily: 'Poppins-Medium',
-    color: '#B0B0B0',
-  },
-  rightWrapper: {flexDirection: 'row', alignItems: 'center', marginRight: 10},
-  rightImage: {height: 15, width: 15},
-  minutesTextWrapper: {
-    fontSize: 9,
-    fontFamily: 'Poppins-Medium',
-    color: '#B0B0B0',
-    marginLeft: 5,
-  },
-  progressBar: {
-    height: 10,
-    width: '98%',
-    borderColor: '#BFD3EF',
-    borderWidth: 2,
-    borderRadius: 10,
-  },
-  progressData: {
-    backgroundColor: '#2073D3',
-    width: '5%',
-    borderRadius: 10,
-  },
+  
 });
 
 export default PrakiriSixthTest;

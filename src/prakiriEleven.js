@@ -17,16 +17,25 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import SubHeading from './Component/SubHeading';
-import FullWidthOption from './Component/FullWidthOption';
 import HeaderComponent from './Component/HeaderComponent';
 import ProgressBarContainer from './Component/ProgressBar';
+import ButtonFullWidth from './Component/ButtonFullWidth';
+import BottomNavigation from './Component/BottomNavigation';
 
 const PrakiriEvelvenTest = ({ navigation }) => {
-  const [choice, setChoice] = useState('');
+  const [choice, setChoice] = useState('')
 
-  const clickedButtonHandler = value => {
-    setChoice(value);
-  };
+
+    const pressedButton = (value) => {
+        setChoice(value);
+
+    }
+    const navigationPreviousFlow = () => {
+      navigation.navigate('PrakiriThirdTest')
+  }
+  const navigationFlow = () => {
+      navigation.navigate('PrakiriTwelveTest')
+  }
   return (
     <View
       style={Platform.OS === 'web' ? styles.webView : styles.containerWrapper}>
@@ -54,35 +63,11 @@ const PrakiriEvelvenTest = ({ navigation }) => {
           </View>
 
           <View style={{ marginTop: 20 }}>
-            <FullWidthOption
-              style={[
-                styles.buttonWrapper,
-                { backgroundColor: choice == 'Yes' ? '#2073D3' : '#fff' },
-              ]}
-              onPress={e => clickedButtonHandler('Yes')}>
-              <Text
-                style={[
-                  styles.buttonText,
-                  { color: choice == 'Yes' ? '#fff' : '#2073D3' },
-                ]}>
-                Yes
-              </Text>
-            </FullWidthOption>
-            <TouchableOpacity
-              style={[
-                styles.buttonWrapper,
-                { backgroundColor: choice == 'No' ? '#2073D3' : '#fff' },
-              ]}
-              onPress={() => clickedButtonHandler('No')}>
-              <Text
-                style={[
-                  styles.buttonText,
-                  { color: choice == 'No' ? '#fff' : '#2073D3' },
-                ]}>
-                No
-              </Text>
-            </TouchableOpacity>
+          <ButtonFullWidth choice={choice} clickedButtonHandler={pressedButton} />
+
           </View>
+          <BottomNavigation navigateData={navigationFlow} navigatePreviousData={navigationPreviousFlow} />
+
         </View>
       </View>
     </View>
@@ -96,11 +81,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: '#fff',
   },
-  headingContainer: {
-    fontSize: 18,
-    color: '#363636',
-    fontFamily: 'Poppins-Medium',
-  },
+
   webView: {
     flex: 1,
     marginRight: 'auto',
@@ -108,83 +89,15 @@ const styles = StyleSheet.create({
     width: 450,
     marginTop: 10,
   },
-  headingWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginRight: 10,
-  },
-  rowWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  headingLeftImage: {
-    height: 35,
-    width: 35,
-  },
+
   headingCenterImage: {
     height: 170,
     width: 240,
     resizeMode: 'contain',
   },
-  levelHeading: {
-    fontSize: 16,
-    color: '#363636',
-    fontFamily: 'Poppins-SemiBold',
-  },
-  levelSubHeading: {
-    color: '#868686',
-    fontSize: 12,
-    marginTop: 10,
-    textAlign: 'left',
-    fontFamily: 'Poppins-Medium',
-    marginRight: 5,
-  },
-  buttonText: {
-    color: '#2073D3',
-    fontSize: 15,
-    fontFamily: 'Poppins-Medium',
-  },
-  buttonWrapper: {
-    borderWidth: 1,
-    marginTop: 10,
-    borderColor: '#2073D3',
-    width: wp(90),
-    paddingVertical: 10,
-    borderRadius: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  progressBarOuterWrapper: {
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    marginBottom: 6,
-  },
-  progressPercentWrapper: {
-    fontSize: 12,
-    fontFamily: 'Poppins-Medium',
-    color: '#B0B0B0',
-  },
-  rightWrapper: { flexDirection: 'row', alignItems: 'center', marginRight: 10 },
-  rightImage: { height: 15, width: 15 },
-  minutesTextWrapper: {
-    fontSize: 9,
-    fontFamily: 'Poppins-Medium',
-    color: '#B0B0B0',
-    marginLeft: 5,
-  },
-  progressBar: {
-    height: 10,
-    width: '98%',
-    borderColor: '#BFD3EF',
-    borderWidth: 2,
-    borderRadius: 10,
-  },
-  progressData: {
-    backgroundColor: '#2073D3',
-    width: '5%',
-    borderRadius: 10,
-  },
+ 
+
+ 
 });
 
 export default PrakiriEvelvenTest;

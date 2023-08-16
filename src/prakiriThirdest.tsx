@@ -22,7 +22,7 @@ const PrakiriThirdTest = ({ navigation }: { navigation: any }) => {
 
     }
     const navigationPreviousFlow = () => {
-        navigation.navigate('PrakiriThirdTest')
+        navigation.navigate('PrakiriSecondTest')
     }
     const navigationFlow = () => {
         navigation.navigate('PrakiriEvelvenTest')
