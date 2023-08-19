@@ -3,7 +3,6 @@ import {
   View,
   StyleSheet,
   Image,
-  FlatList,
   Platform,
 } from 'react-native';
 import HeaderComponent from './Component/HeaderComponent';

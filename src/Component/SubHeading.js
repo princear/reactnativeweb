@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     color: '#868686',
     fontSize: 12,
     marginTop: 10,
-    width: wp(80),
     textAlign: 'left',
     fontFamily: 'Poppins-Medium',
     //  marginRight: 5,

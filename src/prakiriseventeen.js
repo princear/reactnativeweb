@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image,  Platform, } from 'react-native';
 import BottomNavigation from './Component/BottomNavigation';
 import McqComponent from './Component/McqComponent';
 import QuestionText from './Component/QuestionText';

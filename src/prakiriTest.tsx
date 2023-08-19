@@ -77,7 +77,7 @@ const PrakiriTest  = ({ navigation }: { navigation: any }) => {
                     <View style={{ alignItems: 'center', marginTop: '10%' }}>
                         <Image source={require('../src/assets/icons/Group26086693.png')} style={styles.headingCenterImage} />
                     </View>
-                    <View style={{ marginTop: hp(5) }}>
+                    <View style={{ marginTop: hp(5) ,width: Platform.OS == 'web' ? wp(38) : wp(80),}}>
                         <QuestionText children='Please select your level of communication with:' />
                     </View>
                     <View style={{ marginTop: 15 }}>

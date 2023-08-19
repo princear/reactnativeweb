@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   TouchableOpacity,
   StyleSheet,
   Image,
   FlatList,
   Platform,
-  Pressable,
-  Alert,
-  Animated,
+  
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -74,7 +71,7 @@ const PrakiriSixthTest = ({ navigation }) => {
         <View style={{ marginTop: 20 }}>
           <ProgressBarContainer />
         </View>
-        <View style={{ marginTop: Platform.OS == 'web' ? '60%' : '40%' }}>
+        <View style={{ marginTop: Platform.OS == 'web' ? '30%' : '40%' }}>
           <View style={{ marginTop: 15, marginRight: 10 }}>
             <QuestionText>
               In moderate temperatures, what do you prefer to have:
@@ -130,12 +127,12 @@ const styles = StyleSheet.create({
   },
 
   wrappImage: {
-    height: 90,
+    height: Platform.OS == 'web' ? wp(10): 90,
     width: 60,
   },
   boxWrapper: {
     height: 120,
-    width: wp(20),
+    width: Platform.OS == 'web' ? wp(7): wp(20),
     borderWidth: 1,
     marginLeft: 10,
     marginTop: 10,

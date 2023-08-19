@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {
   widthPercentageToDP as wp,
@@ -16,7 +16,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#363636',
     fontFamily: 'Poppins-SemiBold',
-    width: wp(85),
-    // backgroundColor: 'red',
   },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image,  Platform, } from 'react-native';
 import QuestionText from './Component/QuestionText';
 import OptionHeading from './Component/OptionHeading';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -77,7 +77,7 @@ const PrakiriSecondTest = ({ navigation }: { navigation: any }) => {
                     <View style={{ alignItems: 'center', marginTop: '10%' }}>
                         <Image source={require('../src/assets/icons/Group26086697.png')} style={styles.headingCenterImage} />
                     </View>
-                    <View style={{ marginTop: hp(5) }}>
+                    <View style={{ marginTop: hp(5), }}>
                         <QuestionText>
                             When there is a discussion, do you take control of the conversation and make sure your views are heard?
                         </QuestionText>

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useEffect } from 'react';
 import {
     widthPercentageToDP as wp,
@@ -14,7 +14,7 @@ export default function RadioComponent({ props, value ,chooseValue}) {
             {
                 props.map((res) => {
                     return (
-                        <View key={res.key} style={styles.container}>
+                        <View key={res.key} style={styles.containerWrapper}>
                             <TouchableOpacity
                                 style={styles.radioCircle}
                                 onPress={() => chooseValue(res?.key)}>
@@ -32,12 +32,13 @@ export default function RadioComponent({ props, value ,chooseValue}) {
 
 
 const styles = StyleSheet.create({
-    radioContainer: { flexDirection: 'row', width: wp(96), },
-    container: {
+    radioContainer: { 
+        flexDirection: 'row',
+     width: Platform.OS == 'web' ? wp(33): wp(96), 
+    },
+    containerWrapper: {
         marginTop: 15,
         flexDirection: 'row',
-        width: wp(32),
-
     },
     radioText: {
         marginLeft: wp(2),

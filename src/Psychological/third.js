@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image,  Platform, ScrollView } from 'react-native';
 
 const PsychlogicalThird = ({ navigation }) => {
 

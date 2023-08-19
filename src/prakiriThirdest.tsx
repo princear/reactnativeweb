@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image,  Platform,} from 'react-native';
 import QuestionText from './Component/QuestionText';
 import SubHeading from './Component/SubHeading';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
@@ -49,7 +49,7 @@ const PrakiriThirdTest = ({ navigation }: { navigation: any }) => {
                     </View>
 
                     <View style={{ marginTop: 20 }}>
-                        <ButtonFullWidth choice={choice} clickedButtonHandler={pressedButton} />
+                        <ButtonFullWidth firstValue={'Yes'} secondValue={'No'} choice={choice} clickedButtonHandler={pressedButton} />
                     </View>
                     <BottomNavigation navigateData={navigationFlow} navigatePreviousData={navigationPreviousFlow} />
                 </View>

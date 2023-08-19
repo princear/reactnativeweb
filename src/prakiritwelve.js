@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
-  TouchableOpacity,
   StyleSheet,
   Image,
-  FlatList,
   Platform,
-  Pressable,
-  Alert,
-  Animated,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
@@ -57,7 +51,7 @@ const PrakiriTwelveTest = ({ navigation }) => {
           </View>
 
           <View style={{ marginTop: 20 }}>
-            <ButtonFullWidth choice={choice} clickedButtonHandler={pressedButton} />
+            <ButtonFullWidth  firstValue={'Yes'} secondValue={'No'} choice={choice} clickedButtonHandler={pressedButton} />
           </View>
           <BottomNavigation navigateData={navigationFlow} navigatePreviousData={navigationPreviousFlow} />
 

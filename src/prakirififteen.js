@@ -1,15 +1,9 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
-  TouchableOpacity,
   StyleSheet,
   Image,
-  FlatList,
   Platform,
-  Pressable,
-  Alert,
-  Animated,
 } from 'react-native';
 import HeaderComponent from './Component/HeaderComponent';
 import ProgressBarContainer from './Component/ProgressBar';

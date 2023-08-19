@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
-  FlatList,
   Platform,
   Pressable,
   Alert,
@@ -63,7 +62,7 @@ const PrakiriEvelvenTest = ({ navigation }) => {
           </View>
 
           <View style={{ marginTop: 20 }}>
-          <ButtonFullWidth choice={choice} clickedButtonHandler={pressedButton} />
+          <ButtonFullWidth firstValue={'Yes'} secondValue={'No'} choice={choice} clickedButtonHandler={pressedButton} />
 
           </View>
           <BottomNavigation navigateData={navigationFlow} navigatePreviousData={navigationPreviousFlow} />

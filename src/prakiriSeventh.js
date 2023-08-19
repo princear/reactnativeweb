@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image, FlatList, Platform, Pressable, Alert, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image,  Platform, } from 'react-native';
 import HeaderComponent from './Component/HeaderComponent';
 import ProgressBarContainer from './Component/ProgressBar';
 import QuestionText from './Component/QuestionText';
