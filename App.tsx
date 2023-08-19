@@ -63,24 +63,39 @@ import PhysicalTwentyNine from './src/Physical/PhysicaltwentyNine';
 import PhysicalThirty from './src/Physical/PhysicalThirty';
 import PhysicalThirtyOne from './src/Physical/PhysicalThirtyOne';
 import PhysicalThirtyTwo from './src/Physical/PhysicalThirtyTwo';
+import Home from './src/Home';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Reports from './src/Reports';
+import Test from './src/Test';
+import Advice from './src/Advice';
+import { View, TouchableOpacity, Image, Text, Platform } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-const App = () => {
-  const [count, setCount] = useState(0);
 
-  const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
+function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
+
+
         <Stack.Navigator>
           <Stack.Screen
             name="Home"
-            component={CardTest}
+            component={TabNavigator}
             options={{
               headerShown: false,
               gestureEnabled: false
             }}
           />
+          <Stack.Screen name="Card" component={Card} options={{
+            headerShown: false,
+            gestureEnabled: false
+          }} />
           <Stack.Screen name="CardTest" component={CardTest} options={{
             headerShown: false,
             gestureEnabled: false
@@ -260,7 +275,7 @@ const App = () => {
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalSeventeen" component={PhysicalSeventeen} options={{
+          <Stack.Screen name="PhysicalSeventeen" component={PhysicalSeventeen} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
@@ -268,15 +283,15 @@ const App = () => {
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalNineteen" component={PhysicalNineteen} options={{
+          <Stack.Screen name="PhysicalNineteen" component={PhysicalNineteen} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
-            <Stack.Screen name="PhysicalTwenty" component={PhysicalTwenty} options={{
+          <Stack.Screen name="PhysicalTwenty" component={PhysicalTwenty} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicaltwentyOne" component={PhysicaltwentyOne} options={{
+          <Stack.Screen name="PhysicaltwentyOne" component={PhysicaltwentyOne} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
@@ -288,11 +303,11 @@ const App = () => {
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalTwentyFour" component={PhysicalTwentyFour} options={{
+          <Stack.Screen name="PhysicalTwentyFour" component={PhysicalTwentyFour} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalTwentyFive" component={PhysicalTwentyFive} options={{
+          <Stack.Screen name="PhysicalTwentyFive" component={PhysicalTwentyFive} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
@@ -304,11 +319,11 @@ const App = () => {
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalTwentyEight" component={PhysicalTwentyEight} options={{
+          <Stack.Screen name="PhysicalTwentyEight" component={PhysicalTwentyEight} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalTwentyNine" component={PhysicalTwentyNine} options={{
+          <Stack.Screen name="PhysicalTwentyNine" component={PhysicalTwentyNine} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
@@ -316,16 +331,16 @@ const App = () => {
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalThirtyOne" component={PhysicalThirtyOne} options={{
+          <Stack.Screen name="PhysicalThirtyOne" component={PhysicalThirtyOne} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
-           <Stack.Screen name="PhysicalThirtyTwo" component={PhysicalThirtyTwo} options={{
+          <Stack.Screen name="PhysicalThirtyTwo" component={PhysicalThirtyTwo} options={{
             headerShown: false,
             gestureEnabled: false
           }} />
-          
-          
+
+
 
         </Stack.Navigator>
       </NavigationContainer>
@@ -333,5 +348,144 @@ const App = () => {
   );
 };
 
+
+function MyTabBar({ state , descriptors, navigation }) {
+
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        bottom: 0,
+        borderTopColor: '#E5E5E5',
+        borderTopWidth: 1,
+        width: Platform.OS == 'web' ? 480: wp('100%'),
+        alignSelf:'center',
+        backgroundColor: '#fff',
+        height: 70
+
+      }}>
+      {state.routes.map((route : any, index: any) => {
+        const { options } = descriptors[route.key];
+        const label =
+          options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+              ? options.title
+              : route.name;
+
+
+        const isFocused = state.index === index;
+        let showlabel = "";
+        let iconNm = "";
+        if (label == "Home") {
+          showlabel = "Home";
+
+          {isFocused ?
+            iconNm = require('../reactnativeweb/src/assets/icons/home.png')
+            :
+            iconNm = require('../reactnativeweb/src/assets/icons/homeWhite.png');
+          }
+        }
+        if (label == "Reports") {
+           showlabel = "Reports";
+
+          {isFocused ?
+            iconNm = require('../reactnativeweb/src/assets/icons/medicalBlack.png')
+            :
+            iconNm = require('../reactnativeweb/src/assets/icons/medical_information_black_24dp1.png')
+          }
+        }
+
+        if (label == "Test") {
+           showlabel = "Test";
+
+          {isFocused ?
+            iconNm = require('../reactnativeweb/src/assets/icons/Group26086767.png')
+            :
+            iconNm = require('../reactnativeweb/src/assets/icons/image147.png')
+          }
+        }
+
+        if (label == "Advice") {
+           showlabel = "Advice";
+          {isFocused ?
+            iconNm = require('../reactnativeweb/src/assets/icons/Group26086773.png')
+            :
+            iconNm = require('../reactnativeweb/src/assets/icons/Advice.png')
+          }
+        }
+
+        const onPress = () => {
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+          });
+
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name);
+          }
+        };
+
+        const onLongPress = () => {
+          navigation.emit({
+            type: 'tabLongPress',
+            target: route.key,
+          });
+        };
+
+        return (
+
+          <TouchableOpacity
+            accessibilityRole="button"
+            // accessibilityStates={isFocused ? ['selected'] : []}
+            accessibilityLabel={options.tabBarAccessibilityLabel}
+            testID={options.tabBarTestID}
+            onPress={onPress}
+            onLongPress={onLongPress}
+            style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 8 }}
+            key={route.key}
+          >
+            {/* <Icon size={24} name={iconNm} color={isFocused ? '#FFFFFF' : '#d3d3d3'} />  */}
+
+            <Image source={iconNm} style={{ marginRight: 40, marginLeft: 40, resizeMode: 'contain', width: 30, height: 30 }} />
+            <Text style={{ alignSelf: 'center', color:'#323232', fontSize: 13,fontFamily:isFocused ? 'Poppins-SemiBold':'Poppins-Regular', }}>
+              {showlabel}
+            </Text>
+          </TouchableOpacity>
+
+        );
+      })}
+    </View>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+
+function TabNavigator() {
+  return (
+    <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
+      <Tab.Screen name="Home"
+        options={{
+          headerShown: false,
+        }}
+        component={Home} />
+      <Tab.Screen name="Reports"
+        options={{
+          headerShown: false,
+        }}
+        component={Reports} />
+      <Tab.Screen name="Test"
+        options={{
+          headerShown: false,
+        }}
+        component={Test} />
+      <Tab.Screen name="Advice"
+        options={{
+          headerShown: false,
+        }}
+        component={Advice} />
+    </Tab.Navigator>
+  );
+}
 
 export default App;
