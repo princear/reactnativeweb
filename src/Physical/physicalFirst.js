@@ -39,7 +39,7 @@ const PhysicalFirst  = ({ navigation }) => {
         navigation.navigate('PhysicalSecond')
     }
     const navigationPreviousFlow = () =>{
-        // navigation.navigate('PhysicalSecond')
+        navigation.navigate('TestScreen')
     }
 
     return (

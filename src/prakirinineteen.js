@@ -34,7 +34,7 @@ const PrakiriNineteenTest = ({ navigation }) => {
         navigation.navigate('PrakiriEighteenTest')
     }
     const navigationFlow = () => {
-        navigation.navigate('PrakiriNinthTest')
+        navigation.navigate('TestScreen')
     }
     return (
 

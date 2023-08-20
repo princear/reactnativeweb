@@ -60,7 +60,7 @@ const PrakiriTest  = ({ navigation }: { navigation: any }) => {
         navigation.navigate('PrakiriSecondTest')
     }
     const navigationPreviousFlow = () =>{
-        navigation.navigate('')
+        navigation.navigate('TestScreen')
     }
 
     return (

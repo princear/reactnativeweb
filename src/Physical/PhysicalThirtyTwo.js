@@ -19,7 +19,7 @@ const PhysicalThirtyTwo  = ({ navigation }) => {
         navigation.navigate('PhysicalThirtyOne')
     }
     const navigationFlow = () => {
-        // navigation.navigate('PhysicalTwentySix')
+        navigation.navigate('TestScreen')
     }
     return (
 

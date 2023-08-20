@@ -1,34 +1,88 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image,  Platform, } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  FlatList,
+  Platform,
+  Pressable,
+  Alert,
+} from 'react-native';
+import HeaderComponent from '../Component/HeaderComponent';
+import ProgressBarContainer from '../Component/ProgressBar';
+import QuestionText from '../Component/QuestionText';
+import BottomNavigation from '../Component/BottomNavigation';
+import McqComponent from '../Component/McqComponent';
 
-const PsychlogicalSecond = ({ navigation }) => {
+const PsychlogicalSecond = ({navigation}) => {
+  const [click, setClick] = useState('');
+  const [mcqchoice, setMcqChoice] = useState('');
 
+  const [presentation, setUsualDrink] = useState([
+    {
+      id: 1,
+      name: 'Choose the first option you liked',
+    },
+    {
+      id: 2,
+      name: 'Seek opinions from friends or family',
+    },
+    {
+      id: 3,
+      name: 'Spend time on browsing, still unsure',
+    },
+  ]);
 
-    const [click, setClick] = useState('')
+  const navigationPreviousFlow = () => {
+    navigation.navigate('PsychlogicalFirst');
+  };
+  const navigationFlow = () => {
+    navigation.navigate('PsychlogicalNewThird');
+  };
 
+  const clickedButtonHandler = value => {
+    setClick(value);
+  };
+  return (
+    <View
+      style={Platform.OS === 'web' ? styles.webView : styles.containerWrapper}>
+      <View style={{marginLeft: 10}}>
+        <HeaderComponent props="Prakriti Test" />
+        <View style={{marginTop: 20}}>
+          <ProgressBarContainer />
+        </View>
 
-    const [usualDrink, setUsualDrink] = useState([
-        {
-            id: 1,
-            name: 'Choose the first option you liked'
-        },
-        {
-            id: 2,
-            name: 'Seek opinions from friends or family'
-        },
-        {
-            id: 3,
-            name: 'Spend time on browsing, still unsure'
-        }
-    ])
-    const clickedButtonHandler = (value) => {
-        setClick(value);
-    }
-    return (
+        <View>
+          <View style={{alignItems: 'center', marginTop: '10%'}}>
+            <Image
+              source={require('../../src/assets/icons/Group26086720.png')}
+              style={styles.headingCenterImage}
+            />
+          </View>
 
-        <View style={Platform.OS === 'web' ? styles.webView : styles.containerWrapper}>
+          <View style={{marginTop: 30, marginBottom: 25, marginRight: 10}}>
+            <QuestionText>
+              You need to pick an outfit for a special event tonight, but you
+              have many options. Do you:
+            </QuestionText>
+          </View>
 
-            <View style={{ marginLeft: 10 }}>
+          <View>
+            <McqComponent
+              presentationData={presentation}
+              mcqchoice={mcqchoice}
+              setMcqChoice={setMcqChoice}
+            />
+          </View>
+          <BottomNavigation
+            navigateData={navigationFlow}
+            navigatePreviousData={navigationPreviousFlow}
+          />
+        </View>
+      </View>
+      {/* <View style={{ marginLeft: 10 }}>
                 <View style={styles.headingWrapper}>
                     <View style={styles.rowWrapper}>
                         <Image source={require('../assets/icons/image92.png')} style={styles.headingLeftImage} />
@@ -59,71 +113,31 @@ const PsychlogicalSecond = ({ navigation }) => {
                     </View>
 
                 </View>
-            </View>
-        </View>
-    );
+            </View> */}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
+  containerWrapper: {
+    flex: 1,
+    paddingTop: 40,
+    paddingHorizontal: 10,
+    backgroundColor: '#fff',
+  },
+  webView: {
+    flex: 1,
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    width: 450,
+    marginTop: 10,
+  },
 
-    containerWrapper: {
-        flex: 1,
-        paddingTop: 40,
-        paddingHorizontal: 10,
-    },
-    headingContainer:{
-        fontSize: 18,
-        color: '#363636',
-        fontFamily:'Poppins-Medium'
-    },
-    webView: {
-        flex: 1,
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        width: 450,
-        marginTop: 10,
-    },
-    headingWrapper: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginRight: 10,
-    },
-    rowWrapper: {
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    headingLeftImage: {
-        height: 35,
-        width: 35
-    },
-    headingCenterImage: {
-        height: 70,
-        width: 70
-    },
-    levelHeading: {
-        fontSize: 18,
-        color: '#363636',
-        fontFamily:'Poppins-Medium'
-    },
-
-    buttonText: {
-        color: '#2073D3',
-        fontSize: 14,
-        fontFamily:'Poppins-Medium'
-    },
-    buttonWrapper: {
-        borderWidth: 1,
-        marginTop: 10,
-        borderColor: '#2073D3',
-        paddingHorizontal:20,
-        paddingVertical: 10,
-        borderRadius: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-
-
+  headingCenterImage: {
+    // height: 170,
+    // width: 170,
+    resizeMode: 'contain',
+  },
 });
 
 export default PsychlogicalSecond;
