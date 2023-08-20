@@ -11,8 +11,10 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import {useNavigation} from '@react-navigation/native';
 
 export default function PhysicalActivityHeader({props}) {
+  const navigation = useNavigation();
   return (
     <View style={styles.headingWrapper}>
       <View style={styles.rowWrapper}>
@@ -22,7 +24,7 @@ export default function PhysicalActivityHeader({props}) {
         />
         <Text style={styles.headingContainer}>{props}</Text>
       </View>
-      <TouchableOpacity onPress={() => navigateData()}>
+      <TouchableOpacity onPress={() => navigation.navigate('TestScreen')}>
         <Image
           source={require('../assets/icons/close.png')}
           style={styles.headingLeftImage}
